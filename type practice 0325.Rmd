@@ -157,3 +157,16 @@ logi1 <- c(T,TRUE,F,FALSE,FALSE)
 sum(logi1)
 ```
 
+
+```{r}
+library(libridate)
+```
+
+```{r}
+install.packages("lubridate")
+```
+
+
+
+
+
