@@ -1,0 +1,110 @@
+---
+title: "Untitled"
+author: "SamueiTai"
+date: "2020/5/25"
+output: html_document
+---
+
+```{r}
+library(purrr)
+```
+
+```{r}
+library(jsonlite)
+fromJSON("https://www.dropbox.com/s/6252gbdnv9owljm/dance.json?dl=1", simplifyDataFrame = F) -> dance
+```
+
+```{r}
+pick_小新 <- example$name == "小新"
+
+data_select <- list(name=example$name[pick_小新], 
+                    weight=           
+                      )
+```
+
+```{r}
+map()
+#對每個元素進行[pick_小新]
+map(exampe, ~,x[pick_小新])
+```
+
+```{r}
+map(dance, ~.x$title)
+```
+
+
+```{r}
+map(dance,~length(.x$showInfo)) -> dance_showInfoLength
+```
+
+```{r}
+map(dance[[4]]$showInfo, ~.x$time) -> a
+a
+```
+
+```{r}
+map(dance, ~.x$startDate)
+```
+
+```{r}
+threeHeigths <- c(Gary=178, John=182, Cam=175)
+```
+
+```{r}
+# 先排序由大到小，
+sort(threeHeigths, decreasing=T) -> sorted_heights
+
+# 把排好的人名取出
+names(sorted_heights) -> sorted_persons
+
+# 接著取出第一個位置的人名
+sorted_persons[[1]] -> highestPerson
+```
+
+```{r}
+sort(threeHeigths, decreasing=T) %>% 
+names(.) %>%
+.[[1]] -> highestPerson
+```
+
+```{r}
+# 由cities創出每個元素對應的北部、東部、中部region factor
+cities <- factor(c("台北","花蓮","台東","台中"))
+levels(cities)
+```
+
+```{r}
+region <- cities
+levels(region) %>% 
+  str_replace(.,"台北","北部") %>%
+  str_replace(.,"花蓮|台東","東部") %>%
+  str_replace(.,"台中","中部") ->
+  levels(region)
+```
+
+```{r}
+
+```
+
+```{r}
+threeHeights %>%
+  .sort(., decreasing=T) %>%
+  names(.) %>%
+  .[[1]] -> highestPerson
+```
+```{r}
+dataList <- list(
+  num=c(2,97,22,15,7),
+  chr=c("2","97","22","15","7")
+)
+```
+
+```{r}
+map(dataList, is.numeric) -> results
+unlist(results) -> pick_numeric
+
+dataList[pick_numeric] -> num_element
+(num_element[[1]] > 50) -> pick_big
+num_element[[1]][pick_big] -> bigNumber
+```
+
