@@ -256,3 +256,19 @@ median(examSubmissionTime$howEarly[pick_78])
 readline("請輸入你的成績（整數）： ") -> grade # 單獨執行
 ```
 
+```{r}
+# n 為偶數
+n <- 54
+fvalue <- n/2
+
+# n 為奇數
+n <- 33
+fvalue <- -(n+1)/2
+```
+
+```{r}
+(n %% 2)==1 # 表示「奇數」; 或...
+
+as.logical(n %% 2) # 只有0會變F，其他數值都是T
+```
+
